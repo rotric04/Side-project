@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BattleScape 3D: Arena Showdown</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #game-container { position: relative; width: 100vw; height: 100vh; }
+        #game-ui { 
+            position: absolute; 
+            top: 10px; 
+            left: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: none;
+        }
+        #health-bar {
+            width: 200px;
+            height: 20px;
+            background: #333;
+            border: 2px solid #666;
+            margin-bottom: 10px;
+        }
+        #health-fill {
+            width: 100%;
+            height: 100%;
+            background: #0f0;
+            transition: width 0.2s;
+        }
+        #ammo-counter {
+            font-size: 24px;
+        }
+        #game-menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .menu-button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .menu-button:hover {
+            background: #45a049;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-ui">
+            <div id="health-bar">
+                <div id="health-fill"></div>
+            </div>
+            <div id="ammo-counter">Ammo: 12/12</div>
+            <div id="fps-counter">FPS: 60</div>
+        </div>
+        <div id="game-menu">
+            <h1>BattleScape 3D</h1>
+            <button id="start-solo" class="menu-button">Start Solo Game</button>
+            <button id="start-1v1" class="menu-button">Start 1v1 Game</button>
+        </div>
+    </div>
+
+    <!-- Import maps polyfill for browsers without import maps support -->
+    <script async src="https://unpkg.com/es-module-shims"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <!-- Game modules -->
+    <script type="module" src="js/game.js"></script>
+</body>
+</html>
